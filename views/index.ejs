@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body background="http://blog.visme.co/wp-content/uploads/2017/07/50-Beautiful-and-Minimalist-Presentation-Backgrounds-037.jpg">
+
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <br />
+    <fieldset>
+        <legend>View Transactions For:</legend>
+    <a href="http://localhost:3000/total/all">All Transactions Combined</a>
+    <br />
+    <a href="http://localhost:3000/checking/all">Checking</a>
+    <br />
+    <a href="http://localhost:3000/savings/all">Savings</a>
+    <br />
+    <a href="http://localhost:3000/credit/all">Credit</a>
+    <br />
+    </fieldset>
+
+    <br/>
+
+    <fieldset>
+        <legend>Add A Transaction To:</legend>
+    <a href="http://localhost:3000/checking/add">Checking Account</a>
+    <br />
+    <a href="http://localhost:3000/savings/add">Savings Account</a>
+    <br />
+    <a href="http://localhost:3000/credit/add">Credit Card</a>
+    </fieldset>
+
+    <span style="position: fixed; top: 50pt; right: 100pt;"><a href="http://localhost:3000/user/login">Login</a></span>
+    <span style="position: fixed; top: 50pt; right: 50pt;"><a href="http://localhost:3000/account/add">Sign up</a></span>
+    <span style="position: fixed; top: 75pt; right: 50pt;"><a href="http://localhost:3000/user/display">My Account</a></span>
+  </body>
+</html>

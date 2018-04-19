@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+
+<body background="http://blog.visme.co/wp-content/uploads/2017/07/50-Beautiful-and-Minimalist-Presentation-Backgrounds-037.jpg">
+<br />
+
+<h1>Account Information</h1>
+<form action="/user/display" method="get">
+    First Name: <br /> <input name="first_name" type="text" required />
+    <br />
+    Zip Code: <br /> <input name="zip" type="text" required />
+    <br />
+    User Name: <br /> <input name="user_name" type="text" required />
+    <br />
+    <table border="1">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Actions</th>
+        </tr>
+        <tr>
+            <td><%= customer.first_name %></td>
+            <td><%= customer.last_name %></td>
+            <td><%= customer.email %></td>
+            <td><%= customer.phone_number %></td>
+
+            <td>
+                <a href='/user/edit/?email=<%= customer.email %>'>
+                    Edit
+                </a>
+            </td>
+        </tr>
+    </table>
+    <br />
+    <input type="submit" />
+</form>
+</body>
+</html>

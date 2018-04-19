@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+
+<body background="http://blog.visme.co/wp-content/uploads/2017/07/50-Beautiful-and-Minimalist-Presentation-Backgrounds-037.jpg">
+<br />
+
+<h1>Account Registration - Address</h1>
+<form action="/address/insert" method="get">
+    Street: <br /> <input name="street" type="text" required />
+    <br />
+    City: <br /> <input name="city" type="text" required />
+    <br />
+    State: <br /> <input name="state" type="text" required/>
+
+    <br />
+    Zip: <br /> <input name="zip" type="text" />
+    <br />
+
+    <input type="hidden"
+           id="customer_id"
+           name="customer_id"
+           value="<%=customer_id%>"
+    />
+    <br /> <br />
+    <input type="submit" />
+</form>
+</body>
+</html>

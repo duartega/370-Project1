@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <div class="dropdown">
+        <button class="dropbtn"  >Home</button>
+        <div class="dropdown-content">
+            <a href="/">Home</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn" >Add</button>
+        <div class="dropdown-content">
+            <a href="/checking/add">Checking</a>
+            <a href="/credit/add">Credit</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn"  >View</button>
+        <div class="dropdown-content">
+            <a href="/checking/all">Checking</a>
+            <a href="/savings/all">Savings</a>
+            <a href="/credit/all">Credit</a>
+            <a href="/total/all">All Transactions</a>
+
+        </div>
+    </div>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .dropbtn {
+            background-color: #708090;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {background-color: #ddd}
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: #B0C4DE;
+        }
+    </style>
+    <title>Savings - Add</title>
+</head>
+<body background="http://blog.visme.co/wp-content/uploads/2017/07/50-Beautiful-and-Minimalist-Presentation-Backgrounds-037.jpg">
+<br />
+
+<h1>Add New Savings Account Transaction</h1>
+<form action="/savings/insert" method="get">
+    Date: <br /><input name="date" type="date" />
+    <br />
+    Description: <br /><input name="description" type="text" />
+    <br />
+    Debit: <br /><input name="debit" type="text" />
+    <br />
+    Credit: <br /><input name="credit" type="text" />
+    <br />
+    Balance: <br /><input name="balance" type="text" />
+    <br /> <br />
+    <input type="submit" />
+</form>
+<h2>The last record:</h2>
+<table border="1">
+    <tr>
+        <th>Transaction id</th>
+        <th>Date</th>
+        <th>Description</th>
+        <th>Credit</th>
+        <th>Debit</th>
+        <th>Balance</th>
+    </tr>
+    <%var j = 0%>
+    <% for (var i = 0; i < savings.length; i++) {%>
+    <%j = i%>
+
+    <% } %>
+    <tr>
+        <td><%= savings[j].transaction_id %></td>
+        <td><%= savings[j].date %></td>
+        <td><%= savings[j].description %></td>
+        <td><%= savings[j].credit %></td>
+        <td><%= savings[j].debit %></td>
+        <td><%= savings[j].balance %></td>
+    </tr>
+
+</table>
+</body>
+</html>
