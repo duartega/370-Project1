@@ -23,3 +23,37 @@ exports.insert = function (params, callback) {
     })
 
 };
+
+exports.getinfo = function(transaction_id, callback) {
+    var query = 'call credit_getinfo(?)';
+    var queryData = [transaction_id];
+
+    connection.query(query, queryData, function(err, result) {
+        callback(err, result);
+    });
+};
+
+exports.edit = function(callback) {
+    var query = 'SELECT * FROM credit';
+
+    connection.query(query, function(err, result) {
+        callback(err, result);
+    });
+};
+
+exports.update = function(params, callback) {
+    var query = 'update credit set date = ?, merchant_name = ?, description = ?, credit = ?, debit = ?, balance = ? where transaction_id = ?';
+    var queryData = [params.date, params.merchant_name, params.description, params.credit, params.debit, params.balance, params.transaction_id];
+    connection.query(query, queryData, function(err, result) {
+        callback(err, result);
+    });
+};
+
+exports.delete = function(transaction_id, callback) {
+    var query = 'call credit_transaction_delete (?)';
+    var queryData = [transaction_id];
+
+    connection.query(query, queryData, function(err, result) {
+        callback(err, result);
+    });
+};

@@ -18,8 +18,8 @@
     <div class="dropdown">
         <button class="dropbtn"  >View</button>
         <div class="dropdown-content">
-            <a href="/checking/all">Checking</a>
             <a href="/savings/all">Savings</a>
+            <a href="/credit/all">Credit</a>
             <a href="/total/all">All Transactions</a>
 
         </div>
@@ -66,41 +66,48 @@
             background-color: #B0C4DE;
         }
     </style>
-    <title>Credit- View All</title>
+    <title>Checking - Correlated </title>
 </head>
 <body background="http://blog.visme.co/wp-content/uploads/2017/07/50-Beautiful-and-Minimalist-Presentation-Backgrounds-037.jpg">
-<h1>Credit</h1>
-<table border="1">
-    <tr>
-        <th>Transaction id</th>
-        <th>Date</th>
-        <th>Merchant Name</th>
-        <th>Description</th>
-        <th>Credit</th>
-        <th>Debit</th>
-        <th>Balance</th>
-        <th>Action</th>
-    </tr>
-    <% for (var i = 0; i < credit.length; i++) {%>
-    <tr>
-        <td><%= credit[i].transaction_id %></td>
-        <td><%= credit[i].date %></td>
-        <td><%= credit[i].merchant_name %></td>
-        <td><%= credit[i].description %></td>
-        <td><%= credit[i].credit %></td>
-        <td><%= credit[i].debit %></td>
-        <td><%= credit[i].balance %></td>
-        <td>
-            <a href='/credit/edit/?transaction_id=<%= credit[i].transaction_id%>'>
-                Edit
-            </a>
-            &nbsp;<a href='/credit/delete/?transaction_id=<%= credit[i].transaction_id %>'>
-                Delete
-            </a>
-        </td>
-    </tr>
-    <% } %>
-</table>
+<h1>Checking - Correlated</h1>
+
+<form action="http://localhost:3000">
+    <table border="1">
+        <tr>
+            <th>Merchant Name</th>
+            <th>Debit</th>
+        </tr>
+        <% for (var i = 0; i < checking.length; i++) {%>
+        <tr>
+            <td><%= checking[i].merchant_name %></td>
+            <td><%= checking[i].debit %></td>
+        </tr>
+        <% } %>
+    </table>
+    <br/>
+    <table border="1">
+        <tr><th>Average</th></tr>
+        <td><%=checking1[0].average%></td>
+    </table>
+    <br />
+    <input type="submit" value="Return" />
+</form>
 <br />
+<textarea name="comments" id="comments" style="width:75%;height:200px;background-color:black;color:limegreen;border:none;padding:2%;font:18px/20px sans-serif;">
+    This one can count for #1 and #5.
+
+    Here is the query:
+
+    SELECT merchant_name, debit
+    FROM checking c
+    WHERE debit > (SELECT AVG(debit) FROM checking);
+
+    What this does is selects the transactions that have a debit more than the average which is also calculated as follows:
+
+    Select AVG(debit) as average
+    FROM checking c;
+</textarea>
+
+
 </body>
 </html>

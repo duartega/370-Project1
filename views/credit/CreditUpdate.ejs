@@ -1,56 +1,56 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Checking Edit</title>
+    <title>Credit Edit</title>
 </head>
 <body>
-<h1>Checking Edit</h1>
-<form action="/checking/update" method="get">
+<h1>Credit Edit</h1>
+<form action="/credit/update" method="get">
     <input type="hidden"
            id="transaction_id"
            name="transaction_id"
-           value="<%= checking.transaction_id %>"
+           value="<%= credit.transaction_id %>"
     />
     Date: <input
             id="date"
             name="date"
             type="date"
-            value='<%= checking.date %>'
+            value='<%= credit.date %>'
     />
     <br />
     Merchant Name: <input
             id="merchant_name"
             name="merchant_name"
             type="text"
-            value='<%= checking.merchant_name %>'
+            value='<%= credit.merchant_name %>'
     />
     <br />
     Description: <input
             id="description"
             name="description"
             type="text"
-            value='<%= checking.description %>'
+            value='<%= credit.description %>'
     />
     <br />
     Credit: <input
             id="credit"
             name="credit"
             type="text"
-            value='<%= checking.credit%>'
+            value='<%= credit.credit%>'
     />
     <br />
     Debit: <input
             id="debit"
             name="debit"
             type="text"
-            value='<%= checking.debit%>'
+            value='<%= credit.debit%>'
     />
     <br />
     Balance: <input
             id="balance"
             name="balance"
             type="text"
-            value='<%= checking.balance%>'
+            value='<%= credit.balance%>'
     />
     <br />
 

@@ -15,7 +15,7 @@
             <th>Last Name</th>
             <th>Email</th>
             <th>Phone Number</th>
-            <th>Actions</th>
+
         </tr>
         <tr>
             <td><%= user_result[0].first_name %></td>
@@ -23,11 +23,7 @@
             <td><%= user_result[0].email %></td>
             <td><%= user_result[0].phone_number %></td>
 
-            <td>
-                <a href='/user/edit/?email=<%= user_result.email %>'>
-                    Edit
-                </a>
-            </td>
+
         </tr>
     </table>
 
@@ -37,7 +33,7 @@
         <th>City</th>
         <th>Zip</th>
         <th>State</th>
-        <th>Actions</th>
+
     </tr>
     <br /> <br />
      Address:
@@ -47,11 +43,7 @@
         <td><%= user_result[0].zip %></td>
         <td><%= user_result[0].state %></td>
 
-        <td>
-            <a href='/user/edit/?email=<%= user_result.email %>'>
-                Edit
-            </a>
-        </td>
+
     </tr>
 </table>
 

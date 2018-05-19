@@ -23,3 +23,37 @@ exports.insert = function (params, callback) {
     })
 
 };
+
+exports.getinfo = function(transaction_id, callback) {
+    var query = 'call savings_getinfo(?)';
+    var queryData = [transaction_id];
+
+    connection.query(query, queryData, function(err, result) {
+        callback(err, result);
+    });
+};
+
+exports.edit = function(callback) {
+    var query = 'SELECT * FROM savings';
+
+    connection.query(query, function(err, result) {
+        callback(err, result);
+    });
+};
+
+exports.update = function(params, callback) {
+    var query = 'update savings set date = ?, description = ?, credit = ?, debit = ?, balance = ? where transaction_id = ?';
+    var queryData = [params.date, params.description, params.credit, params.debit, params.balance, params.transaction_id];
+    connection.query(query, queryData, function(err, result) {
+        callback(err, result);
+    });
+};
+
+exports.delete = function(transaction_id, callback) {
+    var query = 'call savings_transaction_delete (?)';
+    var queryData = [transaction_id];
+
+    connection.query(query, queryData, function(err, result) {
+        callback(err, result);
+    });
+};

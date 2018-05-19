@@ -78,6 +78,7 @@
         <th>Credit</th>
         <th>Debit</th>
         <th>Balance</th>
+        <th>Action</th>
     </tr>
     <% for (var i = 0; i < savings.length; i++) {%>
     <tr>
@@ -87,6 +88,14 @@
         <td><%= savings[i].credit %></td>
         <td><%= savings[i].debit %></td>
         <td><%= savings[i].balance %></td>
+        <td>
+            <a href='/savings/edit/?transaction_id=<%= savings[i].transaction_id%>'>
+                Edit
+            </a>
+            &nbsp;<a href='/savings/delete/?transaction_id=<%= savings[i].transaction_id %>'>
+                Delete
+            </a>
+        </td>
     </tr>
     <% } %>
 </table>
